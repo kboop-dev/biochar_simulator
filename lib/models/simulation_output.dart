@@ -26,6 +26,13 @@ class SimulationOutput {
   final double cfPorMetal; // usado solo si aplica comparación individual
   final String diagnostico;
 
+  /// Qué tan cerca está la dosis actual de saturar la capacidad de
+  /// adsorción (0-1). Se usa para identificar el factor limitante.
+  final double doseFactor;
+
+  /// Qué tan cerca está el pH actual del pH óptimo del contaminante (0-1).
+  final double phFactor;
+
   const SimulationOutput({
     required this.eficienciaPromedio,
     required this.eficienciaDesviacion,
@@ -36,5 +43,7 @@ class SimulationOutput {
     required this.c0,
     required this.cfPorMetal,
     required this.diagnostico,
+    required this.doseFactor,
+    required this.phFactor,
   });
 }

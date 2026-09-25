@@ -20,6 +20,14 @@ class Contaminant {
   /// (menor = más tolerante, mayor = más sensible).
   final double phSensitivity;
 
+  /// Valor guía orientativo de calidad de agua (mg/L), usado solo como
+  /// referencia para el diagnóstico automático (p. ej. valores guía de la
+  /// OMS para agua de consumo). Es un dato de referencia general, no
+  /// sustituye la normativa específica aplicable a cada caso de uso.
+  /// Null cuando no aplica una comparación directa de este tipo.
+  final double? referenceLimitMgL;
+  final String? referenceLimitLabel;
+
   const Contaminant({
     required this.id,
     required this.label,
@@ -28,6 +36,8 @@ class Contaminant {
     required this.maxEfficiency,
     required this.optimalPh,
     required this.phSensitivity,
+    this.referenceLimitMgL,
+    this.referenceLimitLabel,
   });
 }
 
@@ -44,6 +54,8 @@ const List<Contaminant> kContaminants = [
     maxEfficiency: 0.96,
     optimalPh: 6.5,
     phSensitivity: 0.045,
+    referenceLimitMgL: 0.01,
+    referenceLimitLabel: 'valor guía OMS agua de consumo',
   ),
   Contaminant(
     id: 'plomo',
@@ -53,6 +65,8 @@ const List<Contaminant> kContaminants = [
     maxEfficiency: 0.97,
     optimalPh: 6.0,
     phSensitivity: 0.035,
+    referenceLimitMgL: 0.01,
+    referenceLimitLabel: 'valor guía OMS agua de consumo',
   ),
   Contaminant(
     id: 'cadmio',
@@ -62,6 +76,8 @@ const List<Contaminant> kContaminants = [
     maxEfficiency: 0.9,
     optimalPh: 7.0,
     phSensitivity: 0.04,
+    referenceLimitMgL: 0.003,
+    referenceLimitLabel: 'valor guía OMS agua de consumo',
   ),
   Contaminant(
     id: 'cobre',
@@ -71,6 +87,8 @@ const List<Contaminant> kContaminants = [
     maxEfficiency: 0.88,
     optimalPh: 6.5,
     phSensitivity: 0.04,
+    referenceLimitMgL: 2.0,
+    referenceLimitLabel: 'valor guía OMS agua de consumo',
   ),
   Contaminant(
     id: 'cromo_hex',
@@ -80,6 +98,8 @@ const List<Contaminant> kContaminants = [
     maxEfficiency: 0.93,
     optimalPh: 4.5,
     phSensitivity: 0.05,
+    referenceLimitMgL: 0.05,
+    referenceLimitLabel: 'valor guía OMS para cromo total',
   ),
   Contaminant(
     id: 'zinc',

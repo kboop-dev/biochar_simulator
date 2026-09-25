@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="biochar_simulator"
+        android:label="BIOCHAR"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
