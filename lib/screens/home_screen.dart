@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Simulador de filtración BIOCHAR 🧪')),
+      appBar: AppBar(title: const Text('Simulador de filtración BIOCHAR')),
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isWide = constraints.maxWidth > 900;
@@ -92,28 +92,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ComparisonChart(input: _input, output: _output!),
                       const SizedBox(height: 20),
                       DiagnosticPanel(output: _output!),
+                      const SizedBox(height: 32), // <-- Añadido al final
                     ],
                   ),
                 );
 
-          if (isWide) {
-            return Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(child: SingleChildScrollView(child: resultsContent)),
-                Container(
-                  width: 380,
-                  decoration: const BoxDecoration(
-                    color: AppColors.surface,
-                    border: Border(left: BorderSide(color: AppColors.border)),
-                  ),
-                  child: SingleChildScrollView(child: inputPanelContent),
-                ),
-              ],
-            );
-          }
-
           return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               children: [
                 Container(

@@ -12,7 +12,7 @@ class KineticsChart extends StatelessWidget {
   Widget build(BuildContext context) {
     final curva = output.kineticCurve;
     final maxY = curva.isNotEmpty
-        ? curva.map((p) => p.upperBound).reduce((a, b) => a > b ? a : b) * 1.15
+        ? curva.map((p) => p.upperBound).reduce((a, b) => a > b ? a : b) * 1.25
         : 10.0;
 
     final promedioSpots = curva
@@ -139,13 +139,15 @@ class KineticsChart extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Row(
+            // Reemplaza el Row(...) final de la leyenda por un Wrap:
+            Wrap(
+              spacing: 16,
+              runSpacing: 8,
               children: [
                 _LegendDot(
                   color: AppColors.primary,
                   label: 'Curva promedio de remoción',
                 ),
-                const SizedBox(width: 16),
                 _LegendDot(
                   color: AppColors.accent.withOpacity(0.4),
                   label: 'Banda de dispersión (corridas)',
